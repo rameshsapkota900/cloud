@@ -1,7 +1,12 @@
+const http = require('http');
 const WebSocket = require('ws');
 
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('WebSocket server is running.');
+});
 // Create WebSocket server bound to the specified IP and port
-const wss = new WebSocket.Server();
+const wss = new WebSocket.Server({server:server});
 
 let node1 = null;
 let node2 = null; 
@@ -45,4 +50,5 @@ wss.on('connection', (ws) => {
     });
 });
 
-console.log('WebSocket server is listening on ws://192.168.1.66:5050');
+server.listen(5050, ()=>{console.log('WebSocket server is listening on ws://192.168.1.66:5050');});
+
