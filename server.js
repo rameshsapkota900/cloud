@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 
 // Create WebSocket server bound to the specified IP and port
-const wss = new WebSocket.Server({ host: '192.168.1.66', port: 5050 });
+const wss = new WebSocket.Server();
 
 let node1 = null;
 let node2 = null; 
