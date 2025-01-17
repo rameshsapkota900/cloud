@@ -12,6 +12,8 @@ let node1 = null;
 let node2 = null; 
 
 wss.on('connection', (ws) => {
+    console.log('A new client connected.');
+
     // Assign the first connected client as Node1
     if (node1 === null) {
         node1 = ws;
